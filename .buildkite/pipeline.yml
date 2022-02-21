@@ -3,7 +3,8 @@ steps:
   - label: "about to trigger python-logged-gorups pipeline"
     command: echo trigger pipeline ${BUILDKITE_PULL_REQUEST_DRAFT}
   - label: "define if for full test suite"
-    command: buildkite-agent meta-data set "is_for_full_test_suite" !build.pull_request.draft
+    if: !build.pull_request.draft
+    command: buildkite-agent meta-data set "is_for_full_test_suite" "true"
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
     build:
