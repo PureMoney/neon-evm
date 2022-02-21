@@ -2,7 +2,7 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    command: ~
+    command: "echo set up DRAFT environment"
     agents:
       queue: "testing"
     env:
