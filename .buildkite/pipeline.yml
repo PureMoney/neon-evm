@@ -19,6 +19,6 @@ steps:
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
-        draft: "${DRAFT:-false}"
+        draft: build.env("DRAFT")
 
 
