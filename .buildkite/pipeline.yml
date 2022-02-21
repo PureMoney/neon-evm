@@ -2,9 +2,11 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    command: export DRAFT=true
+    command: ~
     agents:
       queue: "testing"
+    env:
+      DRAFT: "true"
   - wait
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
