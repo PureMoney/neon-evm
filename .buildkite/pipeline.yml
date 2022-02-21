@@ -1,10 +1,11 @@
 steps:
 
-  - label: "about to trigger python-logged-gorups pipeline"
-    command: echo trigger pipeline ${BUILDKITE_PULL_REQUEST_DRAFT}
   - label: "define if for full test suite"
     if: build.pull_request.draft
     command: export DRAFT=true
+    agents:
+      queue: "testing"
+  - wait
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
     build:
