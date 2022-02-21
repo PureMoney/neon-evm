@@ -7,4 +7,4 @@ steps:
       queue: "testing"
 
   - label: "print environment"
-    command: echo "draft:" ${DRAFT}
+    command: echo "draft:" ${DRAFT} GITHUB_RELEASE_ACCESS_KEY ${GITHUB_RELEASE_ACCESS_KEY}
