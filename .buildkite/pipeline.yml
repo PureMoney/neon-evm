@@ -11,3 +11,5 @@ steps:
           EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
           SOLANA_REVISION: "v1.8.12-testnet"
 
+      meta_data:
+        evm_loader_branch: "${EVM_LOADER_BRANCH}"
