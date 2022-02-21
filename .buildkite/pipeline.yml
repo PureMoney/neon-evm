@@ -4,8 +4,7 @@ steps:
     command: echo trigger pipeline ${BUILDKITE_PULL_REQUEST_DRAFT}
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    env:
-      DRAFT: "true"
+    command: export DRAFT=true
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
     build:
