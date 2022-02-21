@@ -12,4 +12,4 @@ steps:
           SOLANA_REVISION: "v1.8.12-testnet"
 
       meta_data:
-        evm_loader_branch: "${EVM_LOADER_BRANCH}"
+        evm_loader_branch: "${BUILDKITE_BRANCH}"
