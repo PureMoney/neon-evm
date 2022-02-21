@@ -2,11 +2,9 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    command: "echo set up DRAFT environment"
+    command: export DRAFT=true
     agents:
       queue: "testing"
-    env:
-      DRAFT: "true"
 
   - label: "print environment"
     command: echo "draft:" ${DRAFT}
