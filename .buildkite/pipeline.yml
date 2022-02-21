@@ -1,12 +1,30 @@
 steps:
 
   - label: "define if for full test suite"
-    if: build.pull_request.draft
-    commands:
-      - "DRAFT=true"
-      - "export DRAFT"
+    if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
+    command: buildkite-agent meta-data set "full_test_suite" "true"
     agents:
       queue: "testing"
 
+
   - label: "print environment"
-    command: echo "draft:" ${DRAFT} GITHUB_RELEASE_ACCESS_KEY ${GITHUB_RELEASE_ACCESS_KEY}
+    command: echo "full_test_suite:" $(buildkite-agent meta-data get "full_test_suite" --default "false")
+    agents:
+      queue: "testing"
+
+
+#  - wait
+#  - label: ":docker: trigger python logged groups pipeline"
+#    trigger: "rozhkovdmitrii-sanbox-pipeline"
+#    build:
+#      branch: "play-buildkite"
+#      env:
+#          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
+#          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
+#          SOLANA_REVISION: "v1.8.12-testnet"
+#
+#      meta_data:
+#        evm_loader_branch: "${BUILDKITE_BRANCH}"
+#        draft: $(buildkite-agent meta-data get "non_draft" --default "false")
+#
+#
