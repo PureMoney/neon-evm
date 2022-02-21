@@ -2,7 +2,7 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    command: export DRAFT=true
+    command: export DRAFT=true && echo DRAFT - ${DRAFT}
     agents:
       queue: "testing"
 
