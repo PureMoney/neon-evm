@@ -10,4 +10,3 @@ steps:
 
   - label: "print environment"
     command: echo "draft:" ${DRAFT}
-    agents:
