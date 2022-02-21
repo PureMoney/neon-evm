@@ -3,7 +3,7 @@ steps:
   - label: "about to trigger python-logged-gorups pipeline"
     command: echo "trigger pipeline"
   - label: ":docker: trigger python logged groups pipeline"
-    trigger: "rozhkovdmitrii_sanbox_pipeline"
+    trigger: "rozhkovdmitrii-sanbox-pipeline"
     build:
       branch: "play-buildkite"
       env:
