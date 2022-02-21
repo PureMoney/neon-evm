@@ -4,7 +4,8 @@ steps:
     command: echo trigger pipeline ${BUILDKITE_PULL_REQUEST_DRAFT}
   - label: "define if for full test suite"
     if: build.pull_request.draft
-    command: buildkite-agent meta-data set "draft" "true"
+    env:
+      DRAFT: "true"
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
     build:
@@ -16,5 +17,6 @@ steps:
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
+        draft: "${DRAFT:-false}"
 
 
