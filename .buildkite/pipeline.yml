@@ -6,6 +6,7 @@ steps:
     commands:
       - buildkite-agent meta-data set "full_test_suite" "true"
       - echo NEON_EVM_PR_DEVELOP=${BUILDKITE_PULL_REQUEST} > neon_evm_pipeline.env
+      - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
     agents:
       queue: "testing"
     artifact_paths:
@@ -16,6 +17,7 @@ steps:
   - label: "print environment"
     commands:
       - echo $(buildkite-agent meta-data get "full_test_suite" --default "false") > neon_evm_pipeline_data.env
+      - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
     agents:
       queue: "testing"
     artifact_paths:
@@ -35,7 +37,7 @@ steps:
           FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
 
       meta_data:
-        evm_loader_branch: "${BUILDKITE_BRANCH}"
+        EVM_LOADER: "${BUILDKITE_BRANCH}"
         full_test_suite: adsf
 
 
