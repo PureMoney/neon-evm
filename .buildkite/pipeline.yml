@@ -37,7 +37,7 @@ steps:
           FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
 
       meta_data:
-        EVM_LOADER: "${BUILDKITE_BRANCH}"
+        NEON_EVM_JOB_ID: "${BUILDKITE_JOB_ID}"
         full_test_suite: adsf
 
 
