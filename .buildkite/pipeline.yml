@@ -12,6 +12,7 @@ steps:
     artifact_paths:
       - "neon_evm_pipeline.env"
 
+
   - wait
 
   - label: "print environment"
@@ -26,18 +27,8 @@ steps:
   - wait
 
   - label: ":docker: trigger python logged groups pipeline"
-    trigger: "rozhkovdmitrii-sanbox-pipeline"
+    command: ./.buildkite/steps/trigger-proxy-pipeline.sh | buildkite-agent pipeline upload
 
-    build:
-      branch: "play-buildkite"
-      env:
-          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
-          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
-          SOLANA_REVISION: "v1.8.12-testnet"
-          FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
-          NEON_EVM_JOB_ID: "${BUILDKITE_JOB_ID}"
 
-      meta_data:
-        full_test_suite: adsf
 
 
