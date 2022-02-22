@@ -7,6 +7,7 @@ steps:
       - buildkite-agent meta-data set "full_test_suite" "true"
       - echo NEON_EVM_PR_DEVELOP=${BUILDKITE_PULL_REQUEST} > neon_evm_pipeline.env
       - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
+      - echo BUILDKITE_PULL_REQUEST - ${BUILDKITE_PULL_REQUEST}
     agents:
       queue: "testing"
 
