@@ -3,7 +3,7 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
-    command: buildkite-agent meta-data set "full_test_suite" "true" && export GGGG="lkadjsflkdjsa;flj"
+    command: buildkite-agent meta-data set "full_test_suite" "true"
     agents:
       queue: "testing"
 
@@ -18,18 +18,18 @@ steps:
 
   - wait
 
-#  - label: ":docker: trigger python logged groups pipeline"
-#    trigger: "rozhkovdmitrii-sanbox-pipeline"
-#    build:
-#      branch: "play-buildkite"
-#      env:
-#          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
-#          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
-#          SOLANA_REVISION: "v1.8.12-testnet"
-#          FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
-#
-#      meta_data:
-#        evm_loader_branch: "${BUILDKITE_BRANCH}"
-#        full_test_suite: bu!!!ildkite-agent meta-data get "full_test_suite" --default "false"
+  - label: ":docker: trigger python logged groups pipeline"
+    trigger: "rozhkovdmitrii-sanbox-pipeline"
+    build:
+      branch: "play-buildkite"
+      env:
+          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
+          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
+          SOLANA_REVISION: "v1.8.12-testnet"
+          FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
+
+      meta_data:
+        evm_loader_branch: "${BUILDKITE_BRANCH}"
+        full_test_suite: `echo hello world!!`
 
 
