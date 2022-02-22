@@ -3,18 +3,21 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
-    command: buildkite-agent meta-data set "full_test_suite" "true"
+    commands:
+      - buildkite-agent meta-data set "full_test_suite" "true"
+      - echo NEON_EVM_PR_DEVELOP=${BUILDKITE_PULL_REQUEST} > neon_evm_pipeline.env
     agents:
       queue: "testing"
+    artifact_paths:
+      - "neon_evm_pipeline.env"
 
   - wait
 
   - label: "print environment"
     commands:
-      - echo $(buildkite-agent meta-data get "full_test_suite" --default "false")
+      - echo $(buildkite-agent meta-data get "full_test_suite" --default "false") > neon_evm_pipeline_data.env
     agents:
       queue: "testing"
-
 
   - wait
 
