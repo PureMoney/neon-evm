@@ -5,6 +5,7 @@ steps:
     if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
     commands:
       - buildkite-agent meta-data set "full_test_suite" "true"
+      - echo NEON_EVM_REPO - ${BUILDKITE_REPO}
     agents:
       queue: "testing"
 
