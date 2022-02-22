@@ -4,7 +4,6 @@ steps:
   - label: "define if for full test suite"
     if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
     commands:
-      - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
       - echo BUILDKITE_PULL_REQUEST - ${BUILDKITE_PULL_REQUEST}
     agents:
       queue: "testing"
