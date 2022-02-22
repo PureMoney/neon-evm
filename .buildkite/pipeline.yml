@@ -30,6 +30,6 @@ steps:
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
-        full_test_suite: `echo hello world!!`
+        full_test_suite: adsf
 
 
