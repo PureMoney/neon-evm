@@ -13,6 +13,6 @@ cat << EOF
           EVM_LOADER_FULL_TEST_SUITE: $(buildkite-agent meta-data get "full_test_suite" --default "false")
           NEON_EVM_REVISION: "${BUILDKITE_COMMIT}"
           NEON_EVM_BRANCH: "${BUILDKITE_BRANCH}"
-          NEON_EVM_REPO: "${NEON_EVM_REPO}"
+          NEON_EVM_REPO: "${BUILDKITE_BRANCH}"
 EOF
 
