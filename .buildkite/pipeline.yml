@@ -35,9 +35,9 @@ steps:
           EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
           SOLANA_REVISION: "v1.8.12-testnet"
           FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
+          NEON_EVM_JOB_ID: "${BUILDKITE_JOB_ID}"
 
       meta_data:
-        NEON_EVM_JOB_ID: "${BUILDKITE_JOB_ID}"
         full_test_suite: adsf
 
 
