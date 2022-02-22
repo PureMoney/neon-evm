@@ -9,20 +9,6 @@ steps:
       - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
     agents:
       queue: "testing"
-    artifact_paths:
-      - "neon_evm_pipeline.env"
-
-
-  - wait
-
-  - label: "print environment"
-    commands:
-      - echo $(buildkite-agent meta-data get "full_test_suite" --default "false") > neon_evm_pipeline_data.env
-      - echo BUILDKITE_JOB_ID - ${BUILDKITE_JOB_ID}
-    agents:
-      queue: "testing"
-    artifact_paths:
-      - "neon_evm_pipeline.env"
 
   - wait
 
