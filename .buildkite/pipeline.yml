@@ -5,14 +5,14 @@ steps:
 
   - label: "define if for full test suite"
     if: build.pull_request.base_branch == "develop" && !build.pull_request.draft
-    command: buildkite-agent meta-data set "full_test_suite" "true"
+    command: buildkite-agent meta-data set "full_test_suite" "true" && export GGGG="lkadjsflkdjsa;flj"
     agents:
       queue: "testing"
 
   - wait
 
   - label: "print environment"
-    command: echo "full_test_suite:" ${GGBB} $(buildkite-agent meta-data get "full_test_suite" --default "false")
+    command: echo "full_test_suite:" ${GGBB} -${GGGG} - $(buildkite-agent meta-data get "full_test_suite" --default "false")
     agents:
       queue: "testing"
 
