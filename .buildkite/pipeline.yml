@@ -28,6 +28,8 @@ steps:
 
   - label: ":docker: trigger python logged groups pipeline"
     command: ./.buildkite/steps/trigger-proxy-pipeline.sh | buildkite-agent pipeline upload
+    env:
+      GGBB: "asdfasdkj f;kdajs;f"
 
 
 
