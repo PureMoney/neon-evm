@@ -31,6 +31,6 @@ steps:
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
-        evm_loader_develop_not_draft_pr: $(buildkite-agent meta-data get "non_draft" --default "false")
+        evm_loader_full_test_suite: $(buildkite-agent meta-data get "full_test_suite" --default "false")
 
 
