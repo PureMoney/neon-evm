@@ -27,7 +27,7 @@ steps:
           EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
           EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
           SOLANA_REVISION: "v1.8.12-testnet"
-          EVM_LOADER_DEVELOP_NOT_DRAFT_PR: $(buildkite-agent meta-data get "full_test_suite" --default "false")
+          FULL_TEST_SUITE: $(buildkite-agent meta-data get "full_test_suite" --default "false")
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
