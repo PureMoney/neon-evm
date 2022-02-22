@@ -31,6 +31,6 @@ steps:
 
       meta_data:
         evm_loader_branch: "${BUILDKITE_BRANCH}"
-        full_test_suite: bu!!!ildkite-agent meta-data get "full_test_suite" --default "false"
+#        full_test_suite: bu!!!ildkite-agent meta-data get "full_test_suite" --default "false"
 
 
