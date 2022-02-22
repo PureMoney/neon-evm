@@ -1,5 +1,3 @@
-env:
-  GGBB: "bbgg"
 
 steps:
 
@@ -12,25 +10,25 @@ steps:
   - wait
 
   - label: "print environment"
-    command: echo "full_test_suite:" ${GGBB} -${GGGG} - $(buildkite-agent meta-data get "full_test_suite" --default "false")
+    command: echo $(buildkite-agent meta-data get "full_test_suite" --default "false")
     agents:
       queue: "testing"
 
 
   - wait
 
-  - label: ":docker: trigger python logged groups pipeline"
-    trigger: "rozhkovdmitrii-sanbox-pipeline"
-    build:
-      branch: "play-buildkite"
-      env:
-          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
-          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
-          SOLANA_REVISION: "v1.8.12-testnet"
-          FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
-
-      meta_data:
-        evm_loader_branch: "${BUILDKITE_BRANCH}"
+#  - label: ":docker: trigger python logged groups pipeline"
+#    trigger: "rozhkovdmitrii-sanbox-pipeline"
+#    build:
+#      branch: "play-buildkite"
+#      env:
+#          EVM_LOADER_REVISION: "${BUILDKITE_COMMIT}"
+#          EVM_LOADER_BRANCH: "${EVM_LOADER_BRANCH}"
+#          SOLANA_REVISION: "v1.8.12-testnet"
+#          FULL_TEST_SUITE: "buildkite-agent meta-data get \"full_test_suite\" --default \"false\""
+#
+#      meta_data:
+#        evm_loader_branch: "${BUILDKITE_BRANCH}"
 #        full_test_suite: bu!!!ildkite-agent meta-data get "full_test_suite" --default "false"
 
 
