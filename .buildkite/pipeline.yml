@@ -10,7 +10,8 @@ steps:
   - wait
 
   - label: "print environment"
-    command: echo $(buildkite-agent meta-data get "full_test_suite" --default "false")
+    commands:
+      - echo $(buildkite-agent meta-data get "full_test_suite" --default "false")
     agents:
       queue: "testing"
 
