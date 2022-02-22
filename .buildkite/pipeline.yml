@@ -18,11 +18,14 @@ steps:
       - echo $(buildkite-agent meta-data get "full_test_suite" --default "false") > neon_evm_pipeline_data.env
     agents:
       queue: "testing"
+    artifact_paths:
+      - "neon_evm_pipeline.env"
 
   - wait
 
   - label: ":docker: trigger python logged groups pipeline"
     trigger: "rozhkovdmitrii-sanbox-pipeline"
+
     build:
       branch: "play-buildkite"
       env:
